@@ -1,0 +1,87 @@
+<template name="position">
+	{{#if editing_post}}
+    {{#if admin}}
+      {{>editPostTemplate}}
+    {{else}}
+      {{>viewPostTemplate}}
+    {{/if}}
+	{{/if}} 
+  {{>circles}}
+</template>
+
+
+<template name="circles">
+  {{#if editing_post}}
+    <div class="circle-image2" id="{{_id}}" style="position:absolute;left:{{left}};top:{{top}};"></div>
+  {{else}}
+    <div class="circle-image" id="{{_id}}" style="position:absolute;left:{{left}};top:{{top}};"></div>
+  {{/if}} 
+
+</template>
+
+<template name="editPostTemplate">
+  <div class="modal post_edit" id="{{_id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close closeButton" data-dismiss="modal" aria-hidden="true">×</button>
+              {{#if editing_name}}
+                <h1><input type="text" class="post_name" value = "{{name}}"></h1>
+              {{else}}
+                <h1 class="modal-title post_name" value="{{name}}">{{name}}</h1>
+              {{/if}}
+            </div>
+
+            <div class="modal-body">
+              <div class="row-fluid">
+            <div class="span4">
+              {{#if editing_info}}
+                    <textarea class="form-control post_info" value="{{info}}"></textarea><br>
+                  {{else}}
+                    <p class="post_info" value="{{info}}">{{info}}</p>
+                  {{/if}}
+            </div>
+
+            <div class="span8">
+              {{>carousel}}
+            </div>
+          </div>
+            </div>
+
+            <div class="modal-footer">
+          {{>upload}}
+              <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary update">Save changes</button>
+            </div>
+        </div>
+      </div>
+  </div>
+</template>
+
+<template name="viewPostTemplate">
+  <div class="modal post_edit" id="{{_id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close closeButton" data-dismiss="modal" aria-hidden="true">×</button>
+            <h1 class="modal-title post_name" value="{{name}}">{{name}}</h1>
+          </div>
+
+          <div class="modal-body">
+            <div class="row-fluid">
+              <div class="span4">
+                <p class="post_info" value="{{info}}">{{info}}</p>
+              </div>
+
+              <div class="span8">
+                {{>carousel}}
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+          </div>
+        </div>
+        </div>
+  </div>
+</template>

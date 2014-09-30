@@ -1,0 +1,26 @@
+<template name="users">
+  {{#if admin}}
+  <div class="modal users">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Users</h4>
+        </div>
+        <div class="modal-body">
+          
+            {{#each userlist}}
+              {{>userItem}}
+            {{/each}}
+       
+        </div>
+       <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</template>
+
+<template name="userItem">
+    <h4> - {{profile.role}} - {{profile.email}}</h4>
+</template>

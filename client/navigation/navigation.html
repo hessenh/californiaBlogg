@@ -1,0 +1,35 @@
+<template name="navigation2">
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+  		<a class="navbar-brand" href="/map">California!</a>
+  		{{#if admin}}
+    		<a class="navbar-brand" href="/requests">Requests!</a>
+    		<a class="navbar-brand" href="/users">Users</a>
+    	{{/if}}
+    	{{#if currentUser}}
+    		<a class="navbar-brand logout-bar" href="/logout">Log out</a>
+  		{{/if}}
+  </div>
+
+</div>
+	
+</template>
+
+<template name="navigation">
+  <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="collapse navbar-collapse">
+            <a class="navbar-brand navbar-brand-centered" href="/map"><h2>California!</h2></a>
+            {{#if admin}}
+              <a class="navbar-brand navbar-brand-request" href="/requests"><h3>Requests</h3></a>
+              <a class="navbar-brand navbar-brand-users" href="/users"><h3>Users</h3></a>
+            {{/if}}
+            {{#if currentUser}}
+              <a class="navbar-brand navbar-brand-right" href="/logout"><h3>Log out</h3></a>  
+            {{else}}    
+              <a class="navbar-brand navbar-brand-right" href="/login"><h3>Log in</h3></a>  
+            {{/if}}
+        </div>
+      </div>
+    </nav>
+</template>

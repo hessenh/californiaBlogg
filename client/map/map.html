@@ -1,0 +1,29 @@
+<template name="map">
+    <div class="container map">
+ 	 {{#if admin}}
+    	{{#each positions}}
+        	{{>position}}
+    	{{/each}}
+    	<div class="responsive-scale"></div>
+    	<button id="reset">Reset</button>
+    {{else}}
+    	{{#if user}}
+    		{{#each positions}}
+        		{{>position}}
+    		{{/each}}
+    		<div class="responsive-scale"></div>
+    	{{else}}
+    		{{>login}}
+    	{{/if}}
+    {{/if}}
+
+  </div>
+</template>
+
+<template name="map2">
+    <div class="container">
+        <h4>Fluid Background Image - Scalable</h4> 
+        <div class="responsive-scale"></div>
+    </div>
+
+</template>

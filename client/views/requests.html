@@ -1,0 +1,36 @@
+<template name="requests">
+  {{#if admin}}
+  <div class="modal requests">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Request's</h4>
+        </div>
+        <div class="modal-body">
+          {{#if requestList.count}}
+            {{#each requestList}}
+              {{>request_item}}
+            {{/each}}
+          {{else}}
+            <h4>Requestlist is empty..</h4>
+          {{/if}}
+        </div>
+       <div class="modal-footer">
+        {{#if requestList.count}}
+          <button type="button"  class="btn btn-default request-yes">Allow</button>
+          <button type="button"  class="btn btn-primary request-no">Deny</button>
+        {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</template>
+
+<template name="request_item">
+          {{#if selected}}
+              <h2 class= "requestSelected {{selected}}" id="{{_id}}" >{{email}}</h2>
+          {{else}}
+              <h4 class= "requestSelected {{selected}}" id="{{_id}}" >{{email}}</h4>
+          {{/if}}
+</template>
